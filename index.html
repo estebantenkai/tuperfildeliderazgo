@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Perfil de Liderazgo · Tenkai Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#6b3fa0;--b:#1e3fa8;--rose:#c2415a;--teal:#1a9fa8;--amber:#ba7517;
+  --grad:linear-gradient(135deg,#6b3fa0 0%,#1e3fa8 50%,#1a9fa8 100%);
+  --grad2:linear-gradient(135deg,#c2415a 0%,#6b3fa0 55%,#1e3fa8 100%);
+  --ink:#0f0f14;--paper:#f8f7f4;--cream:#f0eee8;--border:#e2ddd6;--muted:#6b6560;
+  --f:'Figtree',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--paper);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+@page{size:A4 portrait;margin:12mm}
+@media print{
+  .no-print{display:none!important}
+  body{background:#fff}
+  .page{display:none!important}
+  #pgResult.on{display:block!important}
+  .hdr,.tk-footer{display:none!important}
+  -webkit-print-color-adjust:exact;print-color-adjust:exact
+}
+
+/* ── HDR ──────────────────────────────────── */
+.hdr{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;padding:10px 22px;max-width:860px;margin:0 auto}
+.hdr-left{display:flex;align-items:center;gap:10px}
+.hdr-logo{width:40px;height:40px;border-radius:9px;object-fit:cover;box-shadow:0 2px 10px rgba(107,63,160,.22);flex-shrink:0}
+.hdr-brand{font-size:12px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.8px;margin-top:1px}
+.prog-wrap{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--muted);font-weight:600}
+.prog-bar{width:130px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:var(--grad);border-radius:2px;transition:width .5s}
+
+/* ── PAGES ────────────────────────────────── */
+.page{display:none}.page.on{display:block}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+.sec{padding:48px 0 64px}.sec-sm{padding:28px 0 48px}
+
+/* ── HERO ─────────────────────────────────── */
+.hero{height:300px;background:var(--grad2);position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.hero-geo{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-geo-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.08)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,15,20,.65) 0%,transparent 52%)}
+.hero-txt{position:relative;z-index:2;padding:32px 24px;max-width:860px;margin:0 auto;width:100%}
+.hero-eye{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:10px}
+.hero-thin{display:block;font-size:clamp(17px,2.8vw,24px);font-weight:300;font-style:italic;color:rgba(255,255,255,.72);line-height:1.2;margin-bottom:4px}
+.hero-bold{display:block;font-size:clamp(36px,6vw,60px);font-weight:900;color:#fff;letter-spacing:-2px;line-height:1}
+.hero-sm{height:190px}
+.hero-sm .hero-thin{font-size:clamp(13px,2vw,16px)}
+.hero-sm .hero-bold{font-size:clamp(22px,4vw,36px);letter-spacing:-1px}
+
+/* ── TYPE ─────────────────────────────────── */
+.lbl{display:block;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.intro-p{font-size:15px;line-height:1.9;color:var(--ink);opacity:.8;max-width:620px;margin-bottom:16px}
+.intro-p strong{opacity:1;font-weight:700}
+
+/* ── BOTONES ──────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 30px;background:var(--grad);color:#fff;font-family:var(--f);font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;box-shadow:0 4px 18px rgba(107,63,160,.28);transition:all .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 26px rgba(107,63,160,.4)}.btn:active{transform:translateY(0)}
+.btn-ghost{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:#fff;color:var(--muted);font-family:var(--f);font-size:13px;font-weight:600;border:1.5px solid var(--border);border-radius:7px;cursor:pointer;transition:all .2s}
+.btn-ghost:hover{border-color:var(--p);color:var(--p)}
+.btn-big{font-size:15px;padding:17px 40px;border-radius:10px;justify-content:center;width:100%;max-width:440px}
+.btn-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+.txt-in{width:100%;max-width:420px;padding:13px 17px;display:block;margin-bottom:22px;font-family:var(--f);font-size:17px;font-weight:600;color:var(--ink);background:#fff;border:1.5px solid var(--border);border-radius:8px;outline:none;transition:border-color .2s}
+.txt-in:focus{border-color:var(--p)}.txt-in::placeholder{color:#c8c4bf;font-weight:300}
+
+/* ── ARQUETIPOS INTRO GRID ────────────────── */
+.arq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
+@media(max-width:580px){.arq-grid{grid-template-columns:1fr 1fr}}
+.arq-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:18px 16px;text-align:center;transition:border-color .2s,transform .2s;cursor:default}
+.arq-card:hover{border-color:var(--p);transform:translateY(-2px)}
+.arq-avatar{width:56px;height:56px;margin:0 auto 12px;display:block}
+.arq-name{font-size:13px;font-weight:800;letter-spacing:-.2px;margin-bottom:5px}
+.arq-tag{font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:8px}
+.arq-desc{font-size:11.5px;color:var(--muted);line-height:1.55}
+
+/* ── TIPO MARKER ──────────────────────────── */
+.tipo-marker{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
+
+/* ── CASO (TIPO A) ────────────────────────── */
+.caso-frame{background:linear-gradient(135deg,rgba(107,63,160,.04),rgba(30,63,168,.03));border:1.5px solid rgba(107,63,160,.15);border-radius:16px;padding:22px 24px;margin-bottom:18px;position:relative;overflow:hidden}
+.caso-frame-stripe{position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:16px 0 0 16px}
+.caso-eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.caso-text{font-size:15px;line-height:1.85;color:var(--ink);font-weight:400}
+.caso-text strong{font-weight:700}
+.emo-label{font-size:12px;color:var(--muted);margin-bottom:9px;font-weight:500}
+.emo-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.emo-chip{padding:7px 15px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;transition:all .18s;user-select:none}
+.emo-chip.on{background:var(--p);color:#fff;border-color:var(--p)}
+.txt-area{width:100%;padding:13px 16px;font-family:var(--f);font-size:14px;font-weight:400;color:var(--ink);background:#fff;border:1.5px solid var(--border);border-radius:10px;outline:none;resize:vertical;min-height:100px;line-height:1.7;transition:border-color .2s,box-shadow .2s;margin-bottom:14px}
+.txt-area:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(107,63,160,.08)}.txt-area::placeholder{color:#c8c4bf}
+
+/* ── DILEMA (TIPO B) ──────────────────────── */
+.dilema-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px}
+@media(max-width:560px){.dilema-grid{grid-template-columns:1fr}}
+.dilema-card{background:#fff;border:2px solid var(--border);border-radius:14px;padding:22px 20px;cursor:pointer;transition:all .22s;position:relative;overflow:hidden}
+.dilema-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:14px 0 0 14px;opacity:0;transition:opacity .2s}
+.dilema-card:hover{border-color:var(--p);transform:translateY(-2px)}
+.dilema-card.chosen{border-color:var(--p);background:rgba(107,63,160,.04)}
+.dilema-card.chosen::before{opacity:1;background:var(--p)}
+.dilema-card-letter{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.dilema-card-txt{font-size:14px;line-height:1.75;color:var(--ink);font-weight:400}
+.dilema-or{text-align:center;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);margin:4px 0;align-self:center}
+
+/* ── SLIDER VISUAL (TIPO C) ───────────────── */
+.slider-poles{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px}
+.slider-pole{flex:1;text-align:center}
+.slider-pole-icon{width:60px;height:60px;margin:0 auto 10px;display:block}
+.slider-pole-lbl{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.slider-pole-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.visual-slider{width:100%;margin:16px 0 8px;accent-color:var(--p)}
+.slider-val-lbl{text-align:center;font-size:12px;color:var(--muted);margin-bottom:4px;min-height:18px;font-style:italic}
+
+/* ── RECONOCIMIENTO (TIPO D) ──────────────── */
+.recog-desc{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:18px;font-size:15px;line-height:1.85;color:var(--ink)}
+.recog-scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.recog-btn{padding:11px 6px;text-align:center;font-family:var(--f);background:#fff;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all .18s;font-size:11px;font-weight:600;color:var(--muted)}
+.recog-btn:hover{border-color:var(--p);color:var(--p)}
+.recog-btn.on{background:var(--p);color:#fff;border-color:var(--p)}
+.recog-poles{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:6px;font-weight:600;letter-spacing:.5px}
+
+/* ── CLASIFICAR (TIPO E) ──────────────────── */
+.rank-list{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+.rank-item{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:14px;cursor:default}
+.rank-item.dragging-over{border-color:var(--p);background:rgba(107,63,160,.04)}
+.rank-pos{width:28px;height:28px;border-radius:50%;background:var(--grad);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rank-txt{font-size:14px;color:var(--ink);flex:1;line-height:1.5}
+.rank-arrows{display:flex;flex-direction:column;gap:3px;flex-shrink:0}
+.rank-arrow{background:none;border:1px solid var(--border);border-radius:5px;width:24px;height:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;transition:all .15s}
+.rank-arrow:hover{border-color:var(--p);color:var(--p)}
+
+/* ── COMPLETAR (TIPO F) ───────────────────── */
+.complete-stem{background:linear-gradient(135deg,rgba(107,63,160,.05),rgba(26,159,168,.04));border:1.5px solid rgba(107,63,160,.15);border-radius:12px;padding:18px 22px;margin-bottom:14px;font-size:16px;font-weight:600;color:var(--ink);line-height:1.65}
+.complete-stem span{color:var(--p)}
+
+/* ── PRESIÓN / TIMER (TIPO G) ─────────────── */
+.timer-ring-wrap{display:flex;justify-content:center;margin-bottom:18px}
+.presion-opts{display:flex;flex-direction:column;gap:10px}
+.presion-opt{background:#fff;border:2px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;font-size:14px;color:var(--ink);font-weight:500;line-height:1.6;transition:all .18s;text-align:left;font-family:var(--f)}
+.presion-opt:hover{border-color:var(--p);background:rgba(107,63,160,.04)}
+.presion-opt.chosen{border-color:var(--p);background:rgba(107,63,160,.06);font-weight:700}
+
+/* ── RESULTADO ────────────────────────────── */
+.res-radar-wrap{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:22px;margin-bottom:22px;display:flex;justify-content:center}
+#resRadar{width:100%;max-width:380px;height:320px}
+.res-estilos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+@media(max-width:540px){.res-estilos{grid-template-columns:1fr}}
+.res-estilo-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;border-left-width:4px}
+.res-estilo-name{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.res-estilo-score{display:flex;align-items:baseline;gap:5px;margin-bottom:8px}
+.res-estilo-num{font-size:28px;font-weight:900;line-height:1}
+.res-estilo-max{font-size:12px;color:var(--muted)}
+.res-bar{width:100%;height:6px;background:var(--cream);border-radius:3px;overflow:hidden}
+.res-bar-fill{height:100%;border-radius:3px;transition:width .7s ease}
+.res-perfil{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+@media(max-width:540px){.res-perfil{grid-template-columns:1fr}}
+.res-perfil-card{border-radius:12px;padding:18px 20px}
+.res-perfil-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.res-perfil-title{font-size:20px;font-weight:900;letter-spacing:-.3px;margin-bottom:6px}
+.res-perfil-desc{font-size:12.5px;line-height:1.65}
+.res-acciones{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:22px}
+.res-acc-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+.res-acc-item:last-child{border-bottom:none;padding-bottom:0}
+.res-acc-num{width:26px;height:26px;border-radius:50%;background:var(--grad);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.res-acc-body{}
+.res-acc-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.res-acc-desc{font-size:12.5px;color:var(--muted);line-height:1.6}
+
+/* ── TOAST ────────────────────────────────── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;transition:transform .35s cubic-bezier(.34,1.56,.64,1);pointer-events:none;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ── FOOTER ───────────────────────────────── */
+.tk-footer{background:#fff;border-top:1px solid var(--border);padding:32px 22px 24px;margin-top:52px}
+.tk-footer-in{max-width:860px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.footer-brand{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-copy{font-size:11px;color:#bbb8b4}
+.soc-row{display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+.soc-a{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;transition:all .2s}
+.soc-a:hover{border-color:var(--p);color:var(--p)}
+.soc-a svg{width:11px;height:11px;flex-shrink:0}
+
+/* ── TK FOOTER CANÓNICO Z2 ──────────────────────────── */
+.tk-footer{background:linear-gradient(135deg,#3b35a8 0%,#8b3a8f 50%,#d4522a 100%)!important;border-top:none!important;padding:36px 24px 26px!important;margin-top:48px!important}
+.tk-footer-in{max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.tk-footer .footer-brand{font-size:11px!important;font-weight:800!important;letter-spacing:4px!important;text-transform:uppercase!important;color:rgba(255,255,255,.55)!important;background:none!important;-webkit-text-fill-color:unset!important}
+.tk-footer .soc-row{display:flex!important;gap:6px!important;flex-wrap:wrap!important;justify-content:center!important}
+.tk-footer .soc-a{font-size:11px!important;color:rgba(255,255,255,.72)!important;border:1px solid rgba(255,255,255,.18)!important;border-radius:20px!important;padding:5px 11px!important;background:transparent!important;font-weight:500!important;text-decoration:none!important;display:inline-flex!important;align-items:center!important;gap:5px!important;transition:all .2s!important}
+.tk-footer .soc-a:hover{background:rgba(255,255,255,.12)!important;color:#fff!important;border-color:rgba(255,255,255,.4)!important}
+.tk-footer .footer-copy{font-size:9px!important;font-weight:700!important;letter-spacing:.26em!important;text-transform:uppercase!important;color:rgba(255,255,255,.3)!important}
+@media print{.tk-footer{background:#f8f7fd!important;padding:20px 24px 16px!important}.tk-footer .footer-brand{color:#3b35a8!important}.tk-footer .soc-a{color:#555566!important;border-color:#e2e0ea!important}.tk-footer .footer-copy{color:#888899!important}}
+
+</style>
+</head>
+<body>
+
+<header class="hdr no-print">
+  <div class="hdr-in">
+    <div class="hdr-left">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAB4AHgDASIAAhEBAxEB/8QAHAAAAwADAQEBAAAAAAAAAAAAAAECAwQFBgcI/8QAQBAAAQMDAgIHBQMICwAAAAAAAQACAwQFEQYhEjEHIkFRYYGRExQjcaEVMkIXM0NVYpSx0hZEUlNjcnSSorLR/8QAGwEBAQADAQEBAAAAAAAAAAAABAMCBQYBBwD/xAAnEQADAAICAQIFBQAAAAAAAAAAAQIDERIhUQRBEzFxgaEiMmGx8P/aAAwDAQACEQMRAD8A8khCFtRQklSSoibEpKopKskaJSVKSryQoRSTSV5D0JJNCqiFCSTQqIkxIQhenmzcQnhC5xM6dolJVhJZpk6QipVJK0sjRJSKoqSkSHoSkqkleQ1CSTQrIhTEkn2Lp2/T10uUD6mClLaSMZkqpiI4WDvL3bemVk6UrbZLt9I5aFkmjZHM5kcrRW8bjaCA75Z3whZmOzawjCrCXLcrl1R1jROEiuvbdM3q74NDbaiVh/ScPCz/AHHAXqqLojvc4DquqpKUHm3JkcPTA+qy+JK+bI00j56VOF9bZ0Mw8PxL5KXfs04A+rlzbh0P18M0PuVfHUwuka2TiZ7N7Gk7uG5BwFSfUY/JCuzQ0/0X119stPcvtCKmbOC5kb4i48OcA8xzxldL8jFb+uqf93d/MvrlPBFSUsVPC0MiiYGMb3NAwF5y99IOnrHxMlrRUTt/Q03XIPieQ8yoT6nPVaj+ibmfc8L+Ret/XVP+7u/mWrX9FItdOaiv1LQ00Q/LEWW5+XW3XafqzWmqWkWC1C3UR/rc/d38Thj0BXN/o5pqmqPe9YaubcKvm6KKYu8sjLvTCVGXMv319ktsjSn2R4KqtlOa5tJaKuW6yE4+DSubn5Akk+gXq7J0TX248Mle6O3QHfD+vJj/ACjYeZXpI+kjSWn4DT2K0SuA/u4hEHfNx6x8wuNX9Md4nDm0NBSUrTyc8mVw/gPok/E9Xa1jnX8vW/8AfYO1hnunv6HoKmwaJ6PqNtVcIjXVpGYmTkPfIf2WfdA8SNu9fNtT6vuWqKge8uENHGfg0kR6jO4nvPj6YXJrq6rudZJV1tQ+eokOXSPOSf8AweC1krB6bg+eR8q8+PoGy5+X6ZWkJCeEJgfZ0Y/Zh4MoeWdoYQCfMrrU1/Fuwbda6CCQcppozPJ6v2HkAuThLC4/ls7Nzs7VRrLUlSSX3qrHhG4MH/EBazNTX+N3E29XAH/UOP8AErmkJEKs6I1KPo2jukm5falNbrw8VUE7xE2YtAfG4nAzjYjPmvrznBrS5xAAGST2L88aKtzrnrG2wgZbHKJ3+DWdb+IA819d6Qr4LLpSoDH4qasGnhHb1h1j5DP0U8kJ2lPuGtaZ8dvusL3fZJG1Nwk92LjwwxdRnDnbIHPbvyuRSV81AQ6mbCyQcpTE1zh8uLIHkF0tMSsbfqKlkpqWaConjjkbUQNkw3ONieXPsWKjmFy1Jb/eKembG6pijfHFC2NhbxjOQNuRW0jS610Gs0q26XG4u4q6uqak/wCLK5w9CcLTAwNtvkvW6opJqemdw290UHtiDI60MpeHc8IDwSTnyypgobfXWyy0XsoYLhNG6WKcnAnd7ZzTFJ8wBwnv2Ox2RGRKU9dBblt6PJowvTR0dC7VV9gmY2OlijrCzhjDvZ8OeEtbkbjs3C0tQ08FNDRigjY6hdAXRVWOvO/8Zf8A2XB23B2DHPOSiMibSC2mk2cbCML6C+C1fa0ltD7ZwCmdim+zviZEHF+e7875yvI00MTtMV07mNMzamna15G4BbJkDwOB6BZRmVLevH5I5I4v5+fwczCFWEK+yHI38IwqwjC4lWd80YyEsLIQujYLLNf71T2+HIEjsyPH4GD7x9PqQrTRC1o+jdFNjFHbai91ADXVHw4i7bEbTufM/wDVeG11qQ6kv75InE0VPmKnHeO1/mfoAvZ9Imo4bTbI9MWoiM+zDJuA/m4sbM+ZHPw+a+UEK+HuuTBvvsI3sYx4fEHkkYJOMYO/qspqabjz7jHj2nFjjP3cY4fXda5CkhbCAmQy+3hAZmmBLQ3OXkhxB3yPEJNnhDCH0jHnLTxcRGMHJ28RssJCWEuNAcjKlc18z3sZwNcSQ0HOB3KMJ4TASJBXQsJ4TAVALLYaqIwhXhC92T5G9hLCvCMLhFR9LaMZC+jWt8WgNJm4Tsab1cm/AidzYzsz4DOT4kBeZ07R0sb5LzdG5t9E4Yj7aibm2Md/efD5rnXq71d9uctfWOzI/YNHJjexo8ArwwmRcnr2NComlqqiSeeR0ksji973HdxPMlYCFlIUEJmOg2RGMhSQshCghPxs1+UghLCvCWEyGa/KycJgKgFQCuma/JQgFQaqDVQav3IJVEcKFk4ULzkS5myrijEkgaXhjfxPPJo7SpQuFTPq7Rs3CvNUIYImmOjp2lsER7M83O73OO5PlyC0SFZUlIhh6WkYyFJVlSQm42BymMhSQshCkhOxs12UjCMKsIwmQzWZWIBUAmArAVuRrcrANVhqAFkAXjoFdE8KFlDULHkR5AkUIXFo+wMlSUISID2SVBQhNxgcpJSQhPxmsyiTCEJcmsylBWAhCqazKZGhZGhCFgwFlgIQhYED/9k=" alt="Tenkai" class="hdr-logo">
+      <div><div class="hdr-brand">Tenkai</div><div class="hdr-sub">Consulting</div></div>
+    </div>
+    <div class="prog-wrap">
+      <span id="progTxt">Liderazgo</span>
+      <div class="prog-bar" id="progBarWrap" style="display:none"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ INTRO ════════════════════════════════════════ -->
+<div id="pgIntro" class="page on">
+  <div class="hero">
+    <div class="hero-geo">
+      <div class="hero-geo-ring" style="width:500px;height:500px;top:-200px;right:-120px"></div>
+      <div class="hero-geo-ring" style="width:260px;height:260px;bottom:-80px;left:40px"></div>
+      <div class="hero-geo-ring" style="width:120px;height:120px;top:40px;left:38%"></div>
+    </div>
+    <div class="hero-txt">
+      <p class="hero-eye">Diagnóstico de Liderazgo · Tenkai Consulting · Daniel Goleman</p>
+      <span class="hero-thin">Descubrí tu</span>
+      <span class="hero-bold">Perfil de Liderazgo</span>
+    </div>
+  </div>
+  <div class="wrap"><div class="sec">
+    <p class="intro-p">Daniel Goleman identificó <strong>6 estilos de liderazgo</strong> distintos. Ninguno es mejor que otro — los líderes más efectivos los dominan todos y eligen cuál usar según el momento. Este diagnóstico revela tu estilo dominante, tu fortaleza y lo que emerge en ti cuando la situación se complica.</p>
+    <p class="intro-p">No vas a encontrar preguntas típicas. Vas a enfrentar <strong>situaciones reales</strong>, dilemas, reflexiones y estímulos variados. Cada pantalla es diferente. Respondé con honestidad: lo que realmente harías, no lo que creés que "deberías" hacer.</p>
+
+    <p class="lbl">Los 6 estilos de Goleman</p>
+    <div class="arq-grid">
+
+      <!-- Visionario -->
+      <div class="arq-card">
+        <svg class="arq-avatar" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="28" fill="#eeedfe"/>
+          <circle cx="28" cy="20" r="8" fill="#534ab7"/>
+          <path d="M14 44c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#534ab7" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M28 10 l2 -4 M34 13 l4 -2 M22 13 l-4 -2" stroke="#534ab7" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div class="arq-name">El/la Visionario/a</div>
+        <div class="arq-tag" style="background:#eeedfe;color:#3c3489">Inspira y orienta</div>
+        <div class="arq-desc">Moviliza a las personas hacia una visión compartida. Comunica el "por qué" con convicción.</div>
+      </div>
+
+      <!-- Coaching -->
+      <div class="arq-card">
+        <svg class="arq-avatar" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="28" fill="#e1f5ee"/>
+          <circle cx="22" cy="20" r="7" fill="#0f6e56"/>
+          <circle cx="38" cy="24" r="5" fill="#1d9e75" opacity=".6"/>
+          <path d="M10 44c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#0f6e56" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M32 36 Q40 30 42 40" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" fill="none" opacity=".7"/>
+          <path d="M36 32 l2 -3 M40 32 l-2 -3" stroke="#0f6e56" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="arq-name">El/la Coach</div>
+        <div class="arq-tag" style="background:#e1f5ee;color:#085041">Desarrolla personas</div>
+        <div class="arq-desc">Conecta los objetivos individuales con los organizacionales. Escucha, pregunta y acompaña.</div>
+      </div>
+
+      <!-- Afiliativo -->
+      <div class="arq-card">
+        <svg class="arq-avatar" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="28" fill="#fbeaf0"/>
+          <circle cx="20" cy="22" r="6.5" fill="#993556"/>
+          <circle cx="36" cy="22" r="6.5" fill="#993556"/>
+          <circle cx="28" cy="34" r="6.5" fill="#d4537e"/>
+          <path d="M20 29 Q20 38 28 40" stroke="#993556" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M36 29 Q36 38 28 40" stroke="#993556" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="arq-name">El/la Afiliativo/a</div>
+        <div class="arq-tag" style="background:#fbeaf0;color:#72243e">Conecta y cuida</div>
+        <div class="arq-desc">Prioriza las personas y sus emociones. Construye lazos fuertes y armoniosos en el equipo.</div>
+      </div>
+
+      <!-- Democrático -->
+      <div class="arq-card">
+        <svg class="arq-avatar" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="28" fill="#e6f1fb"/>
+          <circle cx="28" cy="18" r="6" fill="#185fa5"/>
+          <circle cx="14" cy="34" r="5" fill="#378add" opacity=".8"/>
+          <circle cx="42" cy="34" r="5" fill="#378add" opacity=".8"/>
+          <line x1="28" y1="24" x2="14" y2="34" stroke="#185fa5" stroke-width="1.5"/>
+          <line x1="28" y1="24" x2="42" y2="34" stroke="#185fa5" stroke-width="1.5"/>
+          <line x1="14" y1="34" x2="42" y2="34" stroke="#378add" stroke-width="1.5" stroke-dasharray="3 2"/>
+        </svg>
+        <div class="arq-name">El/la Democrático/a</div>
+        <div class="arq-tag" style="background:#e6f1fb;color:#0c447c">Escucha y consensua</div>
+        <div class="arq-desc">Genera participación y compromiso. Toma decisiones consultando al equipo activamente.</div>
+      </div>
+
+      <!-- Marcapasos -->
+      <div class="arq-card">
+        <svg class="arq-avatar" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="28" fill="#faeeda"/>
+          <circle cx="28" cy="19" r="7" fill="#ba7517"/>
+          <path d="M28 44 L28 30" stroke="#ba7517" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M22 36 L28 30 L34 36" stroke="#ef9f27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M24 44 L32 44" stroke="#ba7517" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M26 28 c-6 0-12 4-12 10" stroke="#ba7517" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M30 28 c6 0 12 4 12 10" stroke="#ba7517" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="arq-name">El/la Marcapasos</div>
+        <div class="arq-tag" style="background:#faeeda;color:#633806">Marca el ritmo</div>
+        <div class="arq-desc">Establece el ritmo con su propio desempeño. Espera que el equipo iguale su nivel de exigencia y velocidad.</div>
+      </div>
+
+      <!-- Coercitivo -->
+      <div class="arq-card">
+        <svg class="arq-avatar" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="28" fill="#fcebeb"/>
+          <circle cx="28" cy="18" r="8" fill="#a32d2d"/>
+          <path d="M14 44c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#a32d2d" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M21 13 l-2 -4 M28 10 l0 -4 M35 13 l2 -4" stroke="#e24b4a" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div class="arq-name">El/la Coercitivo/a</div>
+        <div class="arq-tag" style="background:#fcebeb;color:#791f1f">Exige y decide</div>
+        <div class="arq-desc">Efectivo en crisis. Toma decisiones rápidas y espera ejecución inmediata. Alta directividad.</div>
+      </div>
+
+    </div>
+
+    <div style="background:linear-gradient(135deg,rgba(107,63,160,.05),rgba(30,63,168,.04));border:1.5px solid rgba(107,63,160,.15);border-radius:12px;padding:15px 20px;margin-bottom:28px;max-width:580px">
+      <p style="font-size:13px;color:var(--ink);line-height:1.7;font-weight:500">⏱ Este diagnóstico tiene <strong>20 momentos</strong> — ninguno es igual al anterior. Durá unos <strong>15–20 minutos</strong>. Guardá el teléfono y respondé desde lo que realmente sentís, no desde lo que "debería" hacer un buen líder.</p>
+    </div>
+
+    <span class="lbl">Tu nombre</span>
+    <input class="txt-in" type="text" id="nameInput" placeholder="Nombre y apellido" autocomplete="off">
+    <div class="btn-row">
+      <button class="btn" onclick="startTest()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Comenzar el diagnóstico
+      </button>
+    </div>
+  </div></div>
+  <div class="tk-footer no-print"><div class="tk-footer-in">
+    <div class="footer-brand">Tenkai Consulting</div>
+    <div class="soc-row" id="soc0"></div>
+    <div class="footer-copy">PERFIL DE LIDERAZGO · © 2026 TENKAI CONSULTING</div>
+  </div></div>
+</div>
+
+<!-- ═══════ TEST ENGINE ══════════════════════════════════ -->
+<div id="pgTest" class="page">
+  <div class="hero hero-sm" id="testHero">
+    <div class="hero-geo">
+      <div class="hero-geo-ring" style="width:280px;height:280px;top:-100px;right:-60px"></div>
+    </div>
+    <div class="hero-txt">
+      <p class="hero-eye" id="testEye">Momento 1 de 20</p>
+      <span class="hero-thin" id="testThin">Situación</span>
+      <span class="hero-bold" id="testBold">…</span>
+    </div>
+  </div>
+  <div class="wrap"><div class="sec-sm">
+    <div id="tipoMarker"></div>
+    <div id="stepContent"></div>
+    <div class="btn-row" id="stepNav">
+      <button class="btn-ghost" id="btnPrev" onclick="prevStep()" style="display:none">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Atrás
+      </button>
+      <button class="btn" id="btnNext" onclick="nextStep()">Continuar
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div></div>
+  <div class="tk-footer no-print"><div class="tk-footer-in">
+    <div class="footer-brand">Tenkai Consulting</div>
+    <div class="soc-row" id="soc1"></div>
+    <div class="footer-copy">PERFIL DE LIDERAZGO · © 2026 TENKAI CONSULTING</div>
+  </div></div>
+</div>
+
+<!-- ═══════ RESULTADO ════════════════════════════════════ -->
+<div id="pgResult" class="page">
+  <div class="hero hero-sm" style="background:linear-gradient(135deg,#6b3fa0 0%,#1e3fa8 100%)">
+    <div class="hero-txt">
+      <p class="hero-eye">Tu Perfil de Liderazgo</p>
+      <span class="hero-thin">Diagnóstico completo de</span>
+      <span class="hero-bold" id="resNameHero">…</span>
+    </div>
+  </div>
+  <div class="wrap"><div class="sec-sm">
+
+    <div style="background:linear-gradient(135deg,rgba(107,63,160,.07),rgba(30,63,168,.04));border:2px solid rgba(107,63,160,.18);border-radius:16px;padding:26px 30px;margin-bottom:24px;text-align:center">
+      <div style="font-size:26px;margin-bottom:10px">✦</div>
+      <h3 id="resCloseTitle" style="font-size:21px;font-weight:800;letter-spacing:-.4px;color:var(--ink);margin-bottom:9px">Completaste tu diagnóstico</h3>
+      <p style="font-size:14px;line-height:1.9;color:var(--muted);max-width:500px;margin:0 auto">Lo que ves acá no es un juicio — es un mapa. Llevá este resultado a tu reunión con tu coach para diseñar juntos cómo potenciarlo.</p>
+    </div>
+
+    <p class="lbl">Radar de tus 6 estilos</p>
+    <div class="res-radar-wrap"><svg id="resRadar" viewBox="0 0 380 320" xmlns="http://www.w3.org/2000/svg"></svg></div>
+
+    <p class="lbl">Tus puntuaciones</p>
+    <div class="res-estilos" id="resEstilos"></div>
+
+    <p class="lbl">Tu perfil de liderazgo</p>
+    <div class="res-perfil" id="resPerfil"></div>
+
+    <p class="lbl">3 acciones de desarrollo</p>
+    <div class="res-acciones" id="resAcciones"></div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:13px;margin-top:4px">
+      <button class="btn btn-big" onclick="window.print()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar mi Perfil (PDF)
+      </button>
+      <div style="display:flex;gap:11px;flex-wrap:wrap;justify-content:center">
+        <button class="btn-ghost" onclick="sendEmail()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Enviar a Esteban
+        </button>
+        <button class="btn-ghost" onclick="restartTest()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg>
+          Volver a empezar
+        </button>
+      </div>
+    </div>
+  </div></div>
+  <div class="tk-footer no-print"><div class="tk-footer-in">
+    <div class="footer-brand">Tenkai Consulting</div>
+    <div class="soc-row" id="soc2"></div>
+    <div class="footer-copy">PERFIL DE LIDERAZGO · © 2026 TENKAI CONSULTING</div>
+  </div></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── SOCIALS ──────────────────────────────────────────────────────────
+const SOC=`<a href="https://tenkai.com.ar" target="_blank" class="soc-a">tenkai.com.ar</a><a href="mailto:esteban@tenkai.com.ar" class="soc-a">esteban@tenkai.com.ar</a><a href="https://wa.me/5491170657746" target="_blank" class="soc-a">WhatsApp</a><a href="https://linkedin.com/in/toledoesteban" target="_blank" class="soc-a">LinkedIn</a><a href="https://instagram.com/esteban.tenkai" target="_blank" class="soc-a">Instagram</a><a href="https://tiktok.com/@esteban.tenkai" target="_blank" class="soc-a">TikTok</a><a href="https://facebook.com/tenkai.esteban" target="_blank" class="soc-a">Facebook</a>`;
+['soc0','soc1','soc2'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=SOC;});
+
+// ─── ESTILOS ───────────────────────────────────────────────────────────
+const ESTILOS=[
+  {id:'v',name:'Visionario',color:'#534ab7',light:'#eeedfe',desc:'Inspirás y orientás al equipo hacia el futuro con claridad y propósito.'},
+  {id:'c',name:'Coach',color:'#0f6e56',light:'#e1f5ee',desc:'Desarrollás a las personas. Escuchás, preguntás y acompañás su crecimiento.'},
+  {id:'a',name:'Afiliativo',color:'#993556',light:'#fbeaf0',desc:'Priorizás las relaciones y el bienestar emocional de tu equipo.'},
+  {id:'d',name:'Democrático',color:'#185fa5',light:'#e6f1fb',desc:'Generás consenso y participación activa antes de decidir.'},
+  {id:'mp',name:'Marcapasos',color:'#ba7517',light:'#faeeda',desc:'Establecés el ritmo con tu propio desempeño. Esperás que los demás igualen tu nivel de exigencia y velocidad.'},
+  {id:'co',name:'Coercitivo',color:'#a32d2d',light:'#fcebeb',desc:'En momentos de crisis o urgencia, tomás decisiones rápidas y directas.'}
+];
+
+// ─── BANCO DE 20 PASOS ────────────────────────────────────────────────
+// tipo: A=caso, B=dilema, C=slider, D=reconocimiento, E=clasificar, F=completar, G=presión
+const STEPS=[
+
+  // 01 — CASO: La renuncia inesperada
+  {tipo:'A', heroGrad:'linear-gradient(135deg,#c2415a 0%,#6b3fa0 100%)',
+   tipoLabel:'Situación real',tipoBg:'#c2415a',
+   heroThin:'Situación 1', heroBold:'La renuncia inesperada',
+   caso:'Son las 4pm de un jueves. Tu colaborador más importante —la persona que más sabe del proyecto— te manda un mensaje de WhatsApp: renuncia efectiva hoy. Tiene una oferta de otra empresa y el proceso fue muy rápido. No te lo anticipó. El cliente o la entrega más importante del mes depende de lo que esa persona venía manejando. Mañana hay una reunión clave. <strong>¿Cuál es tu primer movimiento?</strong>',
+   casoColor:'#c2415a',
+   placeholder:'Describí concretamente qué harías en las próximas dos horas. Sin filtros.',
+   emos:['Calmo/a','Enojado/a','Enfocado/a','Abrumado/a','Resolutivo/a','Preocupado/a'],
+   scores:{texto:{v:1,c:1},emo:{Calmo_a:{v:1,mp:1},Enojado_a:{co:2},Enfocado_a:{mp:1,co:1},Abrumado_a:{a:1},Resolutivo_a:{co:1,mp:1},Preocupado_a:{a:1,d:1}}}
+  },
+
+  // 02 — DILEMA: Velocidad vs. consenso
+  {tipo:'B', heroGrad:'linear-gradient(135deg,#6b3fa0 0%,#1e3fa8 100%)',
+   tipoLabel:'Dilema',tipoBg:'#6b3fa0',
+   heroThin:'Dilema 1', heroBold:'Velocidad o consenso',
+   pregunta:'Tu equipo tiene que arrancar un proyecto nuevo la semana que viene. El tiempo apremia. Hay dos formas de entrar. ¿Cuál elegís?',
+   opcA:'Armo un plan claro, defino los roles, y presentamos el camino. Ajustamos mientras avanzamos.',
+   opcB:'Convoco al equipo primero, escucho sus perspectivas y definimos juntos antes de empezar.',
+   scA:{co:2,mp:1}, scB:{d:2,a:1}
+  },
+
+  // 03 — SLIDER: Decidir vs. escuchar
+  {tipo:'C', heroGrad:'linear-gradient(135deg,#1e3fa8 0%,#1a9fa8 100%)',
+   tipoLabel:'Reflexión visual',tipoBg:'#1a9fa8',
+   heroThin:'Reflexión 1', heroBold:'Tu modo natural',
+   pregunta:'Pensá en cómo actuás habitualmente —no en una situación específica, sino en general. ¿Dónde te ubicás?',
+   poleA:{label:'Me adelanto y decido', desc:'Marcás el ritmo. Actuás antes de que alguien te pida que lo hagas.'},
+   poleB:{label:'Escucho antes de actuar', desc:'Procesás, consultás, buscás acuerdo antes de cualquier movimiento.'},
+   scores:[
+     {v:1,co:2,mp:1},
+     {v:1,co:1,mp:1},
+     {v:1,mp:1},
+     {d:1,v:1},
+     {d:2,a:1},
+     {d:2,a:1,c:1}
+   ]
+  },
+
+  // 04 — CASO: El conflicto silencioso
+  {tipo:'A', heroGrad:'linear-gradient(135deg,#1a9fa8 0%,#6b3fa0 100%)',
+   tipoLabel:'Situación real',tipoBg:'#1a9fa8',
+   heroThin:'Situación 2', heroBold:'El silencio que pesa',
+   caso:'Dos personas de tu equipo —puede ser en tu empresa, emprendimiento, ONG, club o grupo de trabajo— llevan tres semanas sin hablarse directamente. No hay pelea visible, solo un silencio denso. Las reuniones tienen tensión. Los demás lo notan pero nadie dice nada. Una de las dos personas vino a contarte "en confianza" lo que piensa de la otra. La otra todavía no sabe que sabés. <strong>¿Cómo lo manejás?</strong>',
+   casoColor:'#1a9fa8',
+   placeholder:'Describí paso a paso qué harías. ¿Hablás con los dos por separado? ¿Los juntás? ¿Esperás?',
+   emos:['Incómodo/a','Directo/a','Empático/a','Cauteloso/a','Curioso/a','Decidido/a'],
+   scores:{texto:{a:1,d:1},emo:{Incómodo_a:{a:1},Directo_a:{co:1,mp:1},Empático_a:{a:2,c:1},Cauteloso_a:{d:1,c:1},Curioso_a:{c:2},Decidido_a:{co:1,v:1}}}
+  },
+
+  // 05 — RECONOCIMIENTO 1
+  {tipo:'D', heroGrad:'linear-gradient(135deg,#c2415a 0%,#a0306e 100%)',
+   tipoLabel:'¿Te reconocés?',tipoBg:'#a0306e',
+   heroThin:'Reconocimiento 1', heroBold:'Una forma de liderar',
+   descripcion:'"Cuando alguien del equipo no llega a los resultados que se esperaban, mi primer instinto no es hablar de números ni de plazos. Me siento con esa persona, le pregunto cómo está, qué está viviendo, qué la está trabando. Creo que detrás de casi todo bajo rendimiento hay algo que todavía no entendí."',
+   escala:['Para nada','Raramente','A veces','Seguido','Totalmente'],
+   scores:[{co:1},{mp:1},{d:1},{a:1,c:1},{c:2,a:1}]
+  },
+
+  // 06 — COMPLETAR LA FRASE
+  {tipo:'F', heroGrad:'linear-gradient(135deg,#6b3fa0 0%,#c2415a 100%)',
+   tipoLabel:'Completar',tipoBg:'#6b3fa0',
+   heroThin:'Una sola frase', heroBold:'Tu reacción inmediata',
+   stem:'Cuando alguien de mi equipo comete un error importante que afecta a otros, lo primero que hago es…',
+   placeholder:'Completá con lo que realmente harías — no con lo que "deberías" hacer.',
+   scores:{texto:{a:1,c:1,co:1,v:1}}
+  },
+
+  // 07 — DILEMA: Acompañar
+  {tipo:'B', heroGrad:'linear-gradient(135deg,#1e3fa8 0%,#c2415a 100%)',
+   tipoLabel:'Dilema',tipoBg:'#1e3fa8',
+   heroThin:'Dilema 2', heroBold:'Dos formas de acompañar',
+   pregunta:'Alguien nuevo está tomando un rol con más responsabilidad. Tiene potencial claro pero todavía no tiene experiencia en este nivel. ¿Cómo te posicionás con esa persona?',
+   opcA:'Le muestro cómo lo hago yo. Es la forma más rápida de instalar el estándar que espero.',
+   opcB:'Le hago preguntas, le doy espacio para probar y me mantengo cerca sin dirigir cada paso.',
+   scA:{mp:2,co:1}, scB:{c:2,v:1}
+  },
+
+  // 08 — PRESIÓN / TIMER 1
+  {tipo:'G', heroGrad:'linear-gradient(135deg,#a0306e 0%,#1e3fa8 100%)',
+   tipoLabel:'Bajo presión',tipoBg:'#a0306e',
+   heroThin:'Decisión en', heroBold:'20 segundos',
+   pregunta:'Estás en una reunión con tu equipo o cliente. Surge un problema que nadie vio venir. Hay tres formas de responder ahora mismo. ¿Cuál elegís?',
+   opciones:[
+     {txt:'Tomo el control, indico qué hacer y nos ponemos a ejecutar inmediatamente.',sc:{co:2,mp:1}},
+     {txt:'Pauso, abro la pregunta al grupo y construimos la respuesta juntos.',sc:{d:2,a:1}},
+     {txt:'Conecto el problema con el propósito mayor y reencuadro el camino hacia adelante.',sc:{v:2,c:1}}
+   ]
+  },
+
+  // 09 — CASO: La resistencia al cambio
+  {tipo:'A', heroGrad:'linear-gradient(135deg,#6b3fa0 0%,#c2415a 100%)',
+   tipoLabel:'Situación real',tipoBg:'#c2415a',
+   heroThin:'Situación 3', heroBold:'Nadie quiere cambiar',
+   caso:'Llevás semanas trabajando en una nueva forma de hacer algo que estás convencido/a va a mejorar los resultados. La presentás al equipo con energía y datos. La respuesta es tibia: algunos se quejan abiertamente, otros sonríen y no dicen nada, y dos personas te dicen después de la reunión que "están de acuerdo pero no es el momento". Sentís que la idea es buena pero el terreno no la recibe. <strong>¿Cómo continuás?</strong>',
+   casoColor:'#6b3fa0',
+   placeholder:'¿Insistís? ¿Cedés? ¿Cambiás la estrategia? Describí tu movimiento concreto.',
+   emos:['Firme','Curioso/a','Persuasivo/a','Frustrado/a','Paciente','Flexible'],
+   scores:{texto:{v:1,d:1},emo:{Firme:{co:2,mp:1},Curioso_a:{c:1,d:1},Persuasivo_a:{v:2},Frustrado_a:{mp:1,co:1},Paciente:{a:1,d:1},Flexible:{d:1,a:1}}}
+  },
+
+  // 10 — SLIDER: Distancia vs. cercanía
+  {tipo:'C', heroGrad:'linear-gradient(135deg,#1a9fa8 0%,#1e3fa8 100%)',
+   tipoLabel:'Reflexión visual',tipoBg:'#1e3fa8',
+   heroThin:'Reflexión 2', heroBold:'Tu vínculo con el equipo',
+   pregunta:'En el espectro entre estos dos modos de relacionarte, ¿dónde estás habitualmente?',
+   poleA:{label:'Mantengo distancia profesional', desc:'Límites claros, foco en el trabajo. Las relaciones son instrumentales.'},
+   poleB:{label:'Me importan como personas', desc:'Conocés su vida, sus motivaciones. Estás presente más allá del rol.'},
+   scores:[
+     {co:1,mp:2},
+     {mp:2,co:1},
+     {mp:1,d:1},
+     {a:1,d:1},
+     {a:2,c:1},
+     {a:2,c:2}
+   ]
+  },
+
+  // 11 — RECONOCIMIENTO 2
+  {tipo:'D', heroGrad:'linear-gradient(135deg,#ba7517 0%,#6b3fa0 100%)',
+   tipoLabel:'¿Te reconocés?',tipoBg:'#ba7517',
+   heroThin:'Reconocimiento 2', heroBold:'Otra forma de liderar',
+   descripcion:'"Cuando hay una decisión importante que tomar, prefiero presentar mi visión del camino y explicar el razonamiento. Convocar a todos y esperar que haya consenso me resulta lento y a veces frustrante. Siento que si tengo claridad, lo más honesto es compartirla directamente y avanzar."',
+   escala:['Para nada','Raramente','A veces','Seguido','Totalmente'],
+   scores:[{d:1,a:1},{d:1},{v:1,mp:1},{v:1,mp:1,co:1},{v:2,mp:1,co:1}]
+  },
+
+  // 12 — CLASIFICACIÓN
+  {tipo:'E', heroGrad:'linear-gradient(135deg,#c2415a 0%,#1a9fa8 100%)',
+   tipoLabel:'Clasificación',tipoBg:'#1a9fa8',
+   heroThin:'Orden de prioridad', heroBold:'Tu foco como líder',
+   instruccion:'Ordená estas 4 frases de mayor a menor prioridad según cómo te comportás naturalmente. No lo que aspirás a ser — lo que realmente hacés.',
+   items:[
+     {txt:'Que los resultados lleguen en tiempo y forma.',sc:{co:2,mp:2}},
+     {txt:'Que cada persona del equipo crezca y mejore como profesional.',sc:{c:3,v:1}},
+     {txt:'Que haya buen clima y las personas se sientan bien en el proceso.',sc:{a:3,d:1}},
+     {txt:'Que todos entiendan hacia dónde vamos y por qué tiene sentido.',sc:{v:3,d:1}}
+   ],
+   rankScoreMultiplier:[3,2,1,0]
+  },
+
+  // 13 — CASO: El que no rinde
+  {tipo:'A', heroGrad:'linear-gradient(135deg,#1e3fa8 0%,#a0306e 100%)',
+   tipoLabel:'Situación real',tipoBg:'#1e3fa8',
+   heroThin:'Situación 4', heroBold:'El que no levanta',
+   caso:'Hay una persona en tu equipo que lleva cinco semanas con resultados por debajo de lo esperado. No es alguien nuevo —tiene experiencia y en el pasado le fue bien. Otros miembros del equipo empiezan a notarlo y a hacer comentarios. Vos ya tuviste una conversación informal hace dos semanas pero no cambió nada. Mañana tenés otra reunión de seguimiento. <strong>¿Cómo preparás esa conversación? ¿Qué decís y cómo lo decís?</strong>',
+   casoColor:'#1e3fa8',
+   placeholder:'Describí cómo encarás la conversación: tono, contenido, qué querés lograr.',
+   emos:['Directo/a','Empático/a','Exigente','Paciente','Firme','Preocupado/a'],
+   scores:{texto:{c:1,co:1,mp:1},emo:{Directo_a:{co:1,mp:1},Empático_a:{c:2,a:1},Exigente:{co:2,mp:1},Paciente:{c:1,a:1},Firme:{mp:1,co:1},Preocupado_a:{a:1,c:1}}}
+  },
+
+  // 14 — DILEMA: Reconocer el logro
+  {tipo:'B', heroGrad:'linear-gradient(135deg,#1a9fa8 0%,#a0306e 100%)',
+   tipoLabel:'Dilema',tipoBg:'#1a9fa8',
+   heroThin:'Dilema 3', heroBold:'Cómo reconocés un logro',
+   pregunta:'El equipo terminó un proyecto difícil con muy buen resultado. Llegó el momento de reconocerlo. ¿Qué hacés?',
+   opcA:'Señalo públicamente el resultado: fue un trabajo excelente y quiero que todos lo sepan.',
+   opcB:'Hablo individualmente con cada persona para reconocerle específicamente lo que aportó.',
+   scA:{v:2,mp:1}, scB:{a:2,c:2}
+  },
+
+  // 15 — SLIDER: Estructura vs. autonomía
+  {tipo:'C', heroGrad:'linear-gradient(135deg,#6b3fa0 0%,#1a9fa8 100%)',
+   tipoLabel:'Reflexión visual',tipoBg:'#6b3fa0',
+   heroThin:'Reflexión 3', heroBold:'Control o libertad',
+   pregunta:'Cuando delegás algo importante, ¿cómo lo hacés habitualmente?',
+   poleA:{label:'Con estructura clara', desc:'Definís pasos, fechas de revisión, formato de entrega. El proceso está armado.'},
+   poleB:{label:'Con total autonomía', desc:'Explicás el resultado esperado y dejás que la persona elija el camino.'},
+   scores:[
+     {co:2,mp:2},
+     {co:1,mp:2},
+     {mp:1,co:1},
+     {v:1,d:1},
+     {c:1,a:1},
+     {c:2,a:1}
+   ]
+  },
+
+  // 16 — PRESIÓN / TIMER 2
+  {tipo:'G', heroGrad:'linear-gradient(135deg,#c2415a 0%,#1a9fa8 100%)',
+   tipoLabel:'Bajo presión',tipoBg:'#c2415a',
+   heroThin:'Otra decisión en', heroBold:'20 segundos',
+   pregunta:'Alguien de tu equipo acaba de cometer un error importante frente a un cliente o persona clave. Estás presente. Todos te miran. ¿Qué hacés ahora mismo?',
+   opciones:[
+     {txt:'Asumo yo la situación, gestiono al cliente y después hablo con mi equipo.',sc:{co:1,mp:2}},
+     {txt:'Le doy espacio a la persona para que ella misma explique y corrija el error.',sc:{c:2,d:1}},
+     {txt:'Reencuadro la situación para el cliente y protejo la relación sin señalar a nadie.',sc:{a:2,v:1}}
+   ]
+  },
+
+  // 17 — RECONOCIMIENTO 3
+  {tipo:'D', heroGrad:'linear-gradient(135deg,#1e3fa8 0%,#c2415a 100%)',
+   tipoLabel:'¿Te reconocés?',tipoBg:'#1e3fa8',
+   heroThin:'Reconocimiento 3', heroBold:'Un tercer perfil',
+   descripcion:'"Cuando algo sale mal, mi primer instinto es entender por qué pasó antes de buscar al responsable. Suelo preguntar: ¿qué falló en el sistema, en el proceso, en la comunicación? Raramente señalo a una persona directamente. Prefiero que el equipo aprenda del error colectivamente."',
+   escala:['Para nada','Raramente','A veces','Seguido','Totalmente'],
+   scores:[{co:1,mp:1},{mp:1},{d:1,a:1},{d:1,c:1},{d:2,c:2}]
+  },
+
+  // 18 — CASO: La idea que amenaza
+  {tipo:'A', heroGrad:'linear-gradient(135deg,#a0306e 0%,#1e3fa8 100%)',
+   tipoLabel:'Situación real',tipoBg:'#a0306e',
+   heroThin:'Situación 5', heroBold:'La idea que no pediste',
+   caso:'Una persona de tu equipo —joven, con menos experiencia— te presenta una idea que cambia significativamente cómo venías haciendo algo. La idea es buena: lo reconocés internamente. Pero implica que el camino que vos propusiste no era el mejor. Hay otras dos personas en la reunión escuchando. <strong>¿Cómo respondés en ese momento?</strong>',
+   casoColor:'#a0306e',
+   placeholder:'Describí tu reacción real: qué decís, cómo lo decís, qué sentís.',
+   emos:['Orgulloso/a','Incómodo/a','Abierto/a','Sorprendido/a','Entusiasmado/a','Defensivo/a'],
+   scores:{texto:{v:1,d:1,c:1},emo:{Orgulloso_a:{v:1,c:1},Incómodo_a:{mp:1,co:1},Abierto_a:{d:2,c:1},Sorprendido_a:{d:1,a:1},Entusiasmado_a:{v:2},Defensivo_a:{co:1,mp:2}}}
+  },
+
+  // 19 — COMPLETAR 2
+  {tipo:'F', heroGrad:'linear-gradient(135deg,#1a9fa8 0%,#6b3fa0 100%)',
+   tipoLabel:'Completar',tipoBg:'#1a9fa8',
+   heroThin:'Completar', heroBold:'Lo que nadie sabe de vos',
+   stem:'Lo que más me cuesta en un rol de liderazgo —y que pocas personas saben— es…',
+   placeholder:'Escribí con honestidad. Esta frase no aparece en el resultado público.',
+   scores:{texto:{c:1,a:1,v:1,d:1}}
+  },
+
+  // 20 — CLASIFICACIÓN 2
+  {tipo:'E', heroGrad:'linear-gradient(135deg,#c2415a 0%,#6b3fa0 100%)',
+   tipoLabel:'Clasificación',tipoBg:'#c2415a',
+   heroThin:'Última clasificación', heroBold:'Conversaciones difíciles',
+   instruccion:'Estas 4 situaciones de conversación difícil aparecen en cualquier rol de liderazgo. Ordenalas de más fácil a más difícil para vos —la primera es la que te resulta más natural, la última es la que más te cuesta.',
+   items:[
+     {txt:'Dar feedback negativo claro a alguien que se esfuerza pero no llega.',sc:{co:1,mp:1}},
+     {txt:'Pedirle a alguien que mejore sin que sienta que lo estoy atacando.',sc:{c:2,a:1}},
+     {txt:'Decirle a alguien que su puesto está en riesgo si no cambia.',sc:{co:2,mp:2}},
+     {txt:'Reconocer frente al equipo que me equivoqué en una decisión.',sc:{d:2,v:1,a:1}}
+   ],
+   rankScoreMultiplier:[0,1,2,3]// posición 0 (más fácil) NO suma — lo fácil ya es fortaleza. Lo difícil (pos 3) suma +3 como área de desarrollo.
+  }
+
+];
+
+// ─── STATE ────────────────────────────────────────────────────────────
+const LS_KEY='tenkai_liderazgo_v2';
+let state={name:'',curStep:0,answers:{},scores:{v:0,c:0,a:0,d:0,mp:0,co:0}};
+let timerInterval=null;
+
+function save(){localStorage.setItem(LS_KEY,JSON.stringify(state));}
+function load(){try{const d=localStorage.getItem(LS_KEY);if(d)state={...state,...JSON.parse(d)};}catch(e){}}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo({top:0,behavior:'smooth'});}
+function addScore(obj){for(const k in obj)if(state.scores[k]!==undefined)state.scores[k]+=(obj[k]||0);}
+
+// ─── INTRO ────────────────────────────────────────────────────────────
+function startTest(){
+  const n=document.getElementById('nameInput').value.trim();
+  if(!n){toast('Escribí tu nombre para comenzar');return;}
+  state.name=n;state.curStep=0;state.answers={};state.scores={v:0,c:0,a:0,d:0,mp:0,co:0};
+  save();renderStep(0);showPage('pgTest');
+}
+
+// ─── RENDER STEP ──────────────────────────────────────────────────────
+function renderStep(idx){
+  const s=STEPS[idx];const total=STEPS.length;
+  document.getElementById('progFill').style.width=Math.round((idx/total)*100)+'%';
+  document.getElementById('progBarWrap').style.display='';
+  document.getElementById('progTxt').textContent=`${idx+1} / ${total}`;
+  document.getElementById('testHero').style.background=s.heroGrad;
+  document.getElementById('testEye').textContent=`Momento ${idx+1} de ${total} · ${state.name}`;
+  document.getElementById('testThin').textContent=s.heroThin;
+  document.getElementById('testBold').textContent=s.heroBold;
+
+  // Tipo marker
+  document.getElementById('tipoMarker').innerHTML=`<div class="tipo-marker" style="background:${s.tipoBg}22;color:${s.tipoBg};border:1.5px solid ${s.tipoBg}44">${s.tipoLabel}</div>`;
+
+  // Nav
+  document.getElementById('btnPrev').style.display=idx>0?'inline-flex':'none';
+  const nb=document.getElementById('btnNext');
+  nb.innerHTML=idx<total-1?'Continuar <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>':'Ver mi Perfil <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8l4 4-4 4M8 12h8"/></svg>';
+
+  if(timerInterval){clearInterval(timerInterval);timerInterval=null;}
+
+  const c=document.getElementById('stepContent');
+
+  if(s.tipo==='A') renderA(c,s,idx);
+  else if(s.tipo==='B') renderB(c,s,idx);
+  else if(s.tipo==='C') renderC(c,s,idx);
+  else if(s.tipo==='D') renderD(c,s,idx);
+  else if(s.tipo==='E') renderE(c,s,idx);
+  else if(s.tipo==='F') renderF(c,s,idx);
+  else if(s.tipo==='G') renderG(c,s,idx);
+}
+
+// ─── TIPO A: CASO ─────────────────────────────────────────────────────
+function renderA(c,s,idx){
+  const saved=state.answers[idx]||{};
+  c.innerHTML=`
+    <div class="caso-frame">
+      <div class="caso-frame-stripe" style="background:${s.casoColor}"></div>
+      <div class="caso-eyebrow" style="color:${s.casoColor}">El caso</div>
+      <p class="caso-text">${s.caso}</p>
+    </div>
+    <p class="lbl">Tu respuesta real</p>
+    <textarea class="txt-area" id="casoTxt" placeholder="${s.placeholder}" rows="4">${saved.txt||''}</textarea>
+    <p class="emo-label">¿Cómo te sentirías en esa situación?</p>
+    <div class="emo-chips">${s.emos.map(e=>`<div class="emo-chip ${saved.emo===e?'on':''}" onclick="selectEmo(this,'${e}',${idx})">${e}</div>`).join('')}</div>`;
+}
+function selectEmo(el,val,idx){
+  document.querySelectorAll('.emo-chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  if(!state.answers[idx])state.answers[idx]={};
+  state.answers[idx].emo=val;save();
+}
+function saveA(idx){
+  const s=STEPS[idx];const txt=document.getElementById('casoTxt')?.value||'';
+  if(!state.answers[idx])state.answers[idx]={};
+  state.answers[idx].txt=txt;
+  // Score emo
+  const emo=(state.answers[idx].emo||'').replace(/\//g,'_');
+  const emoSc=s.scores?.emo?.[emo]||{};
+  addScore(emoSc);
+  // Score texto (fijo por paso)
+  addScore(s.scores?.texto||{});
+  save();
+}
+
+// ─── TIPO B: DILEMA ───────────────────────────────────────────────────
+function renderB(c,s,idx){
+  const saved=state.answers[idx];
+  c.innerHTML=`
+    <p style="font-size:15px;line-height:1.8;color:var(--ink);margin-bottom:18px;font-weight:500">${s.pregunta}</p>
+    <div class="dilema-grid">
+      <div class="dilema-card ${saved==='A'?'chosen':''}" id="dA" onclick="chooseDilema('A',${idx})">
+        <div class="dilema-card-letter" style="color:var(--p)">Opción A</div>
+        <div class="dilema-card-txt">${s.opcA}</div>
+      </div>
+      <div class="dilema-card ${saved==='B'?'chosen':''}" id="dB" onclick="chooseDilema('B',${idx})">
+        <div class="dilema-card-letter" style="color:var(--teal)">Opción B</div>
+        <div class="dilema-card-txt">${s.opcB}</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:8px;font-style:italic">Ninguna es incorrecta. Elegí la que más se parezca a vos.</p>`;
+}
+function chooseDilema(which,idx){
+  state.answers[idx]=which;save();
+  document.getElementById('dA')?.classList.toggle('chosen',which==='A');
+  document.getElementById('dB')?.classList.toggle('chosen',which==='B');
+}
+function saveB(idx){
+  const s=STEPS[idx];const ch=state.answers[idx];
+  if(ch==='A')addScore(s.scA);
+  else if(ch==='B')addScore(s.scB);
+}
+
+// ─── TIPO C: SLIDER ───────────────────────────────────────────────────
+function renderC(c,s,idx){
+  const saved=state.answers[idx]??2;
+  const labels=['Totalmente A','Más hacia A','Punto medio','Más hacia B','Totalmente B','Totalmente B'];
+  c.innerHTML=`
+    <p style="font-size:15px;line-height:1.8;color:var(--ink);margin-bottom:22px;font-weight:500">${s.pregunta}</p>
+    <div class="slider-poles">
+      <div class="slider-pole">
+        <svg class="slider-pole-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="29" fill="${ESTILOS.find(e=>e.id==='co')?.light||'#faeeda'}" stroke="${ESTILOS.find(e=>e.id==='co')?.color||'#ba7517'}" stroke-width="2"/>
+          <circle cx="30" cy="22" r="8" fill="${ESTILOS.find(e=>e.id==='co')?.color||'#ba7517'}"/>
+          <path d="M16 46c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="${ESTILOS.find(e=>e.id==='co')?.color||'#ba7517'}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M26 15 L30 10 L34 15" stroke="${ESTILOS.find(e=>e.id==='co')?.color||'#ba7517'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <div class="slider-pole-lbl">${s.poleA.label}</div>
+        <div class="slider-pole-desc">${s.poleA.desc}</div>
+      </div>
+      <div class="slider-pole">
+        <svg class="slider-pole-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="29" fill="${ESTILOS.find(e=>e.id==='a')?.light||'#fbeaf0'}" stroke="${ESTILOS.find(e=>e.id==='a')?.color||'#993556'}" stroke-width="2"/>
+          <circle cx="22" cy="22" r="6" fill="${ESTILOS.find(e=>e.id==='a')?.color||'#993556'}"/>
+          <circle cx="38" cy="22" r="6" fill="${ESTILOS.find(e=>e.id==='a')?.color||'#993556'}" opacity=".7"/>
+          <path d="M12 44c0-6 4.5-10 10-10 2.5 0 4.8 1 6.5 2.5" stroke="${ESTILOS.find(e=>e.id==='a')?.color||'#993556'}" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M48 44c0-6-4.5-10-10-10-2.5 0-4.8 1-6.5 2.5" stroke="${ESTILOS.find(e=>e.id==='a')?.color||'#993556'}" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="slider-pole-lbl">${s.poleB.label}</div>
+        <div class="slider-pole-desc">${s.poleB.desc}</div>
+      </div>
+    </div>
+    <input type="range" class="visual-slider" id="cSlider" min="0" max="5" step="1" value="${saved}" oninput="updateSliderLabel(this.value,${idx})">
+    <div class="slider-val-lbl" id="sliderLbl">${labels[Math.min(saved,5)]}</div>`;
+  updateSliderLabel(saved,idx);
+}
+function updateSliderLabel(val,idx){
+  const labels=['Totalmente A','Más hacia A','Centro-A','Centro-B','Más hacia B','Totalmente B'];
+  const el=document.getElementById('sliderLbl');
+  if(el)el.textContent=labels[Math.min(parseInt(val),5)];
+  state.answers[idx]=parseInt(val);save();
+}
+function saveC(idx){
+  const s=STEPS[idx];const val=state.answers[idx]??2;
+  addScore(s.scores[Math.min(val,5)]);
+}
+
+// ─── TIPO D: RECONOCIMIENTO ───────────────────────────────────────────
+function renderD(c,s,idx){
+  const saved=state.answers[idx];
+  c.innerHTML=`
+    <div class="recog-desc">${s.descripcion}</div>
+    <p class="lbl">¿Cuánto te representa esta descripción?</p>
+    <div class="recog-scale">${s.escala.map((e,i)=>`<button class="recog-btn ${saved===i?'on':''}" onclick="selectRecog(${i},${idx})">${e}</button>`).join('')}</div>
+    <div class="recog-poles"><span>No me identifico</span><span>Me representa totalmente</span></div>`;
+}
+function selectRecog(val,idx){
+  state.answers[idx]=val;save();
+  document.querySelectorAll('.recog-btn').forEach((b,i)=>b.classList.toggle('on',i===val));
+}
+function saveD(idx){
+  const s=STEPS[idx];const val=state.answers[idx]??2;
+  addScore(s.scores[val]);
+}
+
+// ─── TIPO E: CLASIFICAR ───────────────────────────────────────────────
+let rankOrder=[];
+function renderE(c,s,idx){
+  const saved=state.answers[idx]||[0,1,2,3];
+  rankOrder=[...saved];
+  function buildList(){
+    return rankOrder.map((itemIdx,pos)=>{
+      const item=s.items[itemIdx];
+      return`<div class="rank-item" id="ritem-${pos}">
+        <div class="rank-pos">${pos+1}</div>
+        <div class="rank-txt">${item.txt}</div>
+        <div class="rank-arrows">
+          <button class="rank-arrow" onclick="moveRank(${pos},-1,${idx})" ${pos===0?'disabled':''}>▲</button>
+          <button class="rank-arrow" onclick="moveRank(${pos},1,${idx})" ${pos===3?'disabled':''}>▼</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  c.innerHTML=`
+    <p style="font-size:14px;line-height:1.75;color:var(--ink);margin-bottom:20px;font-weight:500">${s.instruccion}</p>
+    <div class="rank-list" id="rankList">${buildList()}</div>
+    <p style="font-size:11.5px;color:var(--muted);text-align:center;margin-top:6px;font-style:italic">Usá las flechas ▲ ▼ para ordenar. El nro. 1 es tu prioridad más alta.</p>`;
+}
+function moveRank(pos,dir,idx){
+  const newPos=pos+dir;
+  if(newPos<0||newPos>3)return;
+  [rankOrder[pos],rankOrder[newPos]]=[rankOrder[newPos],rankOrder[pos]];
+  state.answers[idx]=[...rankOrder];save();
+  const s=STEPS[idx];
+  document.getElementById('rankList').innerHTML=rankOrder.map((itemIdx,p)=>{
+    const item=s.items[itemIdx];
+    return`<div class="rank-item">
+      <div class="rank-pos">${p+1}</div>
+      <div class="rank-txt">${item.txt}</div>
+      <div class="rank-arrows">
+        <button class="rank-arrow" onclick="moveRank(${p},-1,${idx})" ${p===0?'disabled':''}>▲</button>
+        <button class="rank-arrow" onclick="moveRank(${p},1,${idx})" ${p===3?'disabled':''}>▼</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function saveE(idx){
+  const s=STEPS[idx];const order=state.answers[idx]||[0,1,2,3];
+  order.forEach((itemIdx,pos)=>{
+    const mult=s.rankScoreMultiplier[pos];
+    const itemSc=s.items[itemIdx].sc;
+    for(const k in itemSc)if(state.scores[k]!==undefined)state.scores[k]+=itemSc[k]*mult;
+  });
+}
+
+// ─── TIPO F: COMPLETAR ────────────────────────────────────────────────
+function renderF(c,s,idx){
+  const saved=state.answers[idx]||'';
+  c.innerHTML=`
+    <div class="complete-stem">${s.stem} <span>…</span></div>
+    <textarea class="txt-area" id="ftxt" placeholder="${s.placeholder}" rows="3">${saved}</textarea>
+    <p style="font-size:12px;color:var(--muted);font-style:italic">No hay respuesta correcta. Escribí lo primero que se te venga.</p>`;
+}
+function saveF(idx){
+  const txt=document.getElementById('ftxt')?.value||'';
+  state.answers[idx]=txt;
+  addScore(STEPS[idx].scores.texto);// +1 a todos por participación
+  save();
+}
+
+// ─── TIPO G: PRESIÓN + TIMER ─────────────────────────────────────────
+function renderG(c,s,idx){
+  const saved=state.answers[idx];
+  let secs=20;
+  c.innerHTML=`
+    <p style="font-size:15px;line-height:1.8;color:var(--ink);margin-bottom:20px;font-weight:500">${s.pregunta}</p>
+    <div class="timer-ring-wrap">
+      <svg id="timerSvg" width="80" height="80" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="34" fill="none" stroke="#e2ddd6" stroke-width="5"/>
+        <circle id="timerArc" cx="40" cy="40" r="34" fill="none" stroke="${saved!==undefined?'#e2ddd6':'#6b3fa0'}" stroke-width="5" stroke-dasharray="213.6" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 40 40)" style="transition:stroke-dashoffset .9s linear,stroke .3s"/>
+        <text id="timerNum" x="40" y="46" text-anchor="middle" font-size="22" font-weight="800" fill="${saved!==undefined?'#c8c4bf':'var(--p)'}" font-family="Figtree,sans-serif">${saved!==undefined?'✓':'20'}</text>
+      </svg>
+    </div>
+    <div class="presion-opts" id="presionOpts">${s.opciones.map((o,i)=>`<button class="presion-opt ${saved===i?'chosen':''}" onclick="choosePres(${i},${idx})">${o.txt}</button>`).join('')}</div>`;
+
+  if(saved===undefined){
+    const arc=document.getElementById('timerArc');
+    const num=document.getElementById('timerNum');
+    timerInterval=setInterval(()=>{
+      secs--;
+      if(num)num.textContent=secs;
+      const pct=secs/20;
+      if(arc)arc.style.strokeDashoffset=(213.6*(1-pct)).toFixed(1);
+      if(arc)arc.style.stroke=secs<=5?'#c2415a':'#6b3fa0';
+      if(num)num.style.fill=secs<=5?'#c2415a':'var(--p)';
+      if(secs<=0){
+        clearInterval(timerInterval);timerInterval=null;
+        if(arc){arc.style.stroke='#c8c4bf';arc.style.strokeDashoffset='213.6';}
+        if(num){num.textContent='!';num.style.fill='#c8c4bf';}
+        toast('¡Tiempo! Elegí la opción más cercana a tu reacción real.');
+      }
+    },1000);
+  }
+}
+function choosePres(i,idx){
+  if(timerInterval){clearInterval(timerInterval);timerInterval=null;}
+  state.answers[idx]=i;save();
+  document.querySelectorAll('.presion-opt').forEach((b,j)=>b.classList.toggle('chosen',j===i));
+  const arc=document.getElementById('timerArc');
+  const num=document.getElementById('timerNum');
+  if(arc){arc.style.stroke='#1a9fa8';arc.style.strokeDashoffset='0';}
+  if(num){num.textContent='✓';num.style.fill='#1a9fa8';}
+}
+function saveG(idx){
+  const s=STEPS[idx];const ch=state.answers[idx];
+  if(ch!==undefined&&s.opciones[ch])addScore(s.opciones[ch].sc);
+}
+
+// ─── NAV ──────────────────────────────────────────────────────────────
+function nextStep(){
+  const idx=state.curStep;const s=STEPS[idx];
+  // Save scores
+  if(s.tipo==='A')saveA(idx);
+  else if(s.tipo==='B')saveB(idx);
+  else if(s.tipo==='C')saveC(idx);
+  else if(s.tipo==='D')saveD(idx);
+  else if(s.tipo==='E')saveE(idx);
+  else if(s.tipo==='F')saveF(idx);
+  else if(s.tipo==='G')saveG(idx);
+  save();
+
+  if(idx<STEPS.length-1){
+    state.curStep++;save();
+    renderStep(state.curStep);
+  } else {
+    renderResult();showPage('pgResult');
+  }
+}
+function prevStep(){
+  if(state.curStep>0){state.curStep--;save();renderStep(state.curStep);}
+}
+
+// ─── RESULTADO ────────────────────────────────────────────────────────
+function renderResult(){
+  document.getElementById('resNameHero').textContent=state.name;
+  document.getElementById('resCloseTitle').textContent=`Diagnóstico completo de ${state.name.split(' ')[0]}`;
+
+  // Normalizar scores
+  const sc=state.scores;
+  const max=Math.max(...Object.values(sc),1);
+
+  // Radar SVG
+  drawRadar(sc);
+
+  // Cards de estilos
+  document.getElementById('resEstilos').innerHTML=ESTILOS.map(e=>{
+    const v=sc[e.id]||0;const pct=Math.round(v/max*100);
+    let lvl='En desarrollo';
+    if(pct>=80)lvl='Fortaleza alta';else if(pct>=55)lvl='Bien presente';else if(pct>=35)lvl='En crecimiento';
+    return`<div class="res-estilo-card" style="border-left-color:${e.color}">
+      <div class="res-estilo-name" style="color:${e.color}">${e.icon||''} ${e.name}</div>
+      <div class="res-estilo-score"><span class="res-estilo-num" style="color:${e.color}">${v}</span><span class="res-estilo-max">pts · ${lvl}</span></div>
+      <div class="res-bar"><div class="res-bar-fill" style="width:${pct}%;background:${e.color}"></div></div>
+    </div>`;
+  }).join('');
+
+  // Perfil
+  const sorted=ESTILOS.slice().sort((a,b)=>(sc[b.id]||0)-(sc[a.id]||0));
+  const domStyle=sorted[0];const devStyle=sorted[sorted.length-1];
+  // Sombra: el estilo más distante del dominante que sube bajo presión
+  const shadowMap={v:'co',c:'v',a:'mp',d:'co',mp:'co',co:'a'};
+  const shadowId=shadowMap[domStyle.id];
+  const shadow=ESTILOS.find(e=>e.id===shadowId);
+
+  document.getElementById('resPerfil').innerHTML=`
+    <div class="res-perfil-card" style="background:${domStyle.light};border:1.5px solid ${domStyle.color}33">
+      <div class="res-perfil-lbl" style="color:${domStyle.color}">Tu estilo dominante</div>
+      <div class="res-perfil-title" style="color:${domStyle.color}">${domStyle.name}</div>
+      <div class="res-perfil-desc" style="color:${domStyle.color}99">${domStyle.desc}</div>
+    </div>
+    <div class="res-perfil-card" style="background:${shadow?.light||'#faeeda'};border:1.5px solid ${shadow?.color||'#ba7517'}33">
+      <div class="res-perfil-lbl" style="color:${shadow?.color||'#ba7517'}">Tu sombra de liderazgo</div>
+      <div class="res-perfil-title" style="color:${shadow?.color||'#ba7517'}">${shadow?.name||'—'}</div>
+      <div class="res-perfil-desc" style="color:${shadow?.color||'#ba7517'}99">El patrón que emerge cuando estás bajo presión máxima — y que no siempre reconocés en vos mismo/a.</div>
+    </div>`;
+
+  // Acciones
+  const acciones=generateAcciones(domStyle.id,devStyle.id,shadowId);
+  document.getElementById('resAcciones').innerHTML=acciones.map((a,i)=>`
+    <div class="res-acc-item">
+      <div class="res-acc-num">${i+1}</div>
+      <div class="res-acc-body"><div class="res-acc-title">${a.title}</div><div class="res-acc-desc">${a.desc}</div></div>
+    </div>`).join('');
+}
+
+function generateAcciones(dom,dev,shadow){
+  const acc={
+    v:['Bajá la visión a acciones semanales','La visión inspira pero si no hay pasos concretos puede flotar. Ejercitá conectar el "por qué" con el "qué hacemos el lunes que viene".'],
+    c:['Agendá conversaciones 1:1 semanales','El coaching requiere tiempo y presencia. Si no lo agendás, no ocurre. 30 minutos por persona cada semana cambia todo.'],
+    a:['Aprendé a dar feedback difícil','Tu fortaleza en el vínculo puede llevar a evitar conversaciones duras. Practicá decir lo que es necesario, con cuidado pero con claridad.'],
+    d:['Practicá decidir solo/a en situaciones de baja urgencia','El consenso tiene un costo en velocidad. Identificá cuándo es necesario y cuándo podés decidir sin consultar.'],
+    mp:['Delegá sin micro-gestionar','Tu estándar alto puede asfixiar al equipo. Elegí un proyecto esta semana y dejalo correr sin intervenir.'],
+    co:['Pausá antes de dar la respuesta','Tu velocidad en crisis es un activo. Pero entrenar la pausa de 3 segundos antes de responder mejora la calidad de tus decisiones y el clima del equipo.']
+  };
+  const devMap={
+    v:'Comunicá el propósito de lo que hacés — incluso en reuniones pequeñas.',
+    c:'Hacé más preguntas, menos respuestas. La próxima vez que alguien te traiga un problema, no lo resuelvas: preguntá qué creen ellos/as.',
+    a:'Invertí tiempo en conocer qué mueve a cada persona del equipo individualmente.',
+    d:'En la próxima decisión importante, convocá una ronda de opiniones antes de decidir.',
+    mp:'Modelá el estándar que querés ver. Lo que hacés se instala más que lo que pedís.',
+    co:'Cuando algo falle, tomá el timón rápido. La claridad en crisis vale oro.'
+  };
+  return[
+    {title:`Potenciá tu ${ESTILOS.find(e=>e.id===dom)?.name}`,desc:acc[dom]?.[1]||'Trabajá conscientemente en tu estilo dominante para hacerlo más efectivo.'},
+    {title:`Desarrollá el estilo ${ESTILOS.find(e=>e.id===dev)?.name}`,desc:devMap[dev]||'Expandí tu rango incorporando este estilo.'},
+    {title:'Conocé tu sombra de liderazgo',desc:`Cuando estés bajo presión, observá si emerge el estilo ${ESTILOS.find(e=>e.id===shadow)?.name}. Nombrarlo es el primer paso para elegir conscientemente.`}
+  ];
+}
+
+function drawRadar(sc){
+  const svg=document.getElementById('resRadar');
+  const CX=190,CY=160,R=110;const N=6;
+  const angle=i=>Math.PI*2/N*i-Math.PI/2;
+  let h='';
+  // Rings
+  [.2,.4,.6,.8,1].forEach(r=>{
+    const pts=ESTILOS.map((_,i)=>`${CX+Math.cos(angle(i))*R*r},${CY+Math.sin(angle(i))*R*r}`).join(' ');
+    h+=`<polygon points="${pts}" fill="none" stroke="#e2ddd6" stroke-width="${r===1?1.5:1}"/>`;
+  });
+  // Spokes
+  ESTILOS.forEach((_,i)=>{h+=`<line x1="${CX}" y1="${CY}" x2="${CX+Math.cos(angle(i))*R}" y2="${CY+Math.sin(angle(i))*R}" stroke="#e2ddd6" stroke-width="1"/>`;});
+  // Data
+  const max=Math.max(...Object.values(sc),1);
+  const dataPts=ESTILOS.map((e,i)=>{const r=Math.min((sc[e.id]||0)/max,1);return`${CX+Math.cos(angle(i))*R*r},${CY+Math.sin(angle(i))*R*r}`;}).join(' ');
+  h+=`<polygon points="${dataPts}" fill="#6b3fa0" fill-opacity="0.16" stroke="#6b3fa0" stroke-width="2.5"/>`;
+  ESTILOS.forEach((e,i)=>{const r=Math.min((sc[e.id]||0)/max,1);h+=`<circle cx="${CX+Math.cos(angle(i))*R*r}" cy="${CY+Math.sin(angle(i))*R*r}" r="5" fill="${e.color}" stroke="#fff" stroke-width="2"/>`;});
+  // Labels
+  ESTILOS.forEach((e,i)=>{
+    const lx=CX+Math.cos(angle(i))*R*1.22;const ly=CY+Math.sin(angle(i))*R*1.22;
+    const anc=lx<CX-10?'end':lx>CX+10?'start':'middle';
+    h+=`<text x="${lx}" y="${ly+4}" text-anchor="${anc}" font-size="11" font-weight="700" fill="${e.color}" font-family="Figtree,sans-serif">${e.name}</text>`;
+  });
+  svg.innerHTML=h;
+}
+
+function sendEmail(){
+  const sc=state.scores;
+  const lines=[`PERFIL DE LIDERAZGO — ${state.name.toUpperCase()}`,`Basado en modelo de Daniel Goleman`,``,'PUNTUACIONES:'];
+  ESTILOS.forEach(e=>lines.push(`  ${e.name}: ${sc[e.id]||0} pts`));
+  lines.push('','Llevar a la próxima reunión con tu coach para análisis cualitativo.');
+  window.location.href=`mailto:esteban@tenkai.com.ar?subject=${encodeURIComponent('Liderazgo — '+state.name)}&body=${encodeURIComponent(lines.join('\n'))}`;
+}
+function restartTest(){state={name:'',curStep:0,answers:{},scores:{v:0,c:0,a:0,d:0,mp:0,co:0}};localStorage.removeItem(LS_KEY);document.getElementById('nameInput').value='';showPage('pgIntro');document.getElementById('progBarWrap').style.display='none';}
+
+// INIT
+load();
+if(state.name)document.getElementById('nameInput').value=state.name;
+</script>
+</body>
+</html>
